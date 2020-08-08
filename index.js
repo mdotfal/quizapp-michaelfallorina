@@ -48,7 +48,7 @@ function generateCorrect() {
     <form class="feedback">
       <h2> CORRECT! </h2>
      <div class="correct-gif">
-      <img src="images/catch.gif" />
+      <img src="./images/catch.gif" />
      </div>
       <p> Current Score: ${score} / 15 </p>
       <button type="submit">Next>></button>
@@ -62,7 +62,7 @@ function generateIncorrect() {
     <form class="feedback">
       <h2> WRONG! </h2>
       <div class="wrong-gif">
-      <img src="images/killing-me-smalls.gif" />
+      <img src="./images/killing-me-smalls.gif" />
      </div>
       <p> Correct answer is ${questions[currentQuestion].correct} </p>
       <p> ${score} out of 15!!! </p>
@@ -75,6 +75,7 @@ function generateIncorrect() {
 function generateResults() {
   return `
     <form class="results">
+      <img src="./images/legends-never-die.gif" />
       <h2>You scored ${score} out of 15 Correct!</h2>
       <button type="submit">Restart Quiz</button>
     </form>
