@@ -55,7 +55,7 @@ function generateCorrect() {
      <div class="correct-gif">
       <img src="./images/catch.gif" />
      </div>
-      <p> Current Score: <span class="correct">${score}</span> / 15 </p>
+      <p> Current Score: ${score} / 15 </p>
       <button type="submit" class="btn">Next</button>
     </form>
   `;
@@ -69,7 +69,7 @@ function generateIncorrect() {
       <div class="wrong-gif">
       <img src="./images/killing-me-smalls.gif" />
      </div>
-      <p> Correct answer is <span class="correct">${questions[currentQuestion].correct}<span></p>
+      <p> Correct answer is ${questions[currentQuestion].correct}</p>
       <p> Score: ${score} out of 15! </p>
       <button type="submit">Next</button>
     </form>
@@ -140,6 +140,15 @@ function submitNextHandler() {
   });
 }
 
+function handleRestartQuiz() {
+  //  targets '.results' child selector
+  $( '.quiz-container' ).on( 'submit', '.results', function( event ) {
+    console.log('restart quiz')
+    // runs callback to render the start page again and reset values back to 0;
+    renderStartPage();
+  });
+}
+
 /*********************************************  BINDS EVENT HANDLERS  ************************************************** */
 
 function init(){
@@ -147,6 +156,7 @@ function init(){
   startQuizHandler();
   submitAnswerHandler();
   submitNextHandler();
+  handleRestartQuiz();
 }
 
 init();
