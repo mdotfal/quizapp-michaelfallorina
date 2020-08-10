@@ -7,11 +7,14 @@
 function generateStartPage() {
   return `
   <form class="start-quiz">
-    <label> 
-      This id the demo quiz, are you ready to begin?
+    <label>
+      <div class="start-logo">
+        <img src="./images/sandlot-logo.png" >
+        <p class="trivia-title"> Trivia Quiz </p>
+      </div>
     </label>
-    <button type="submit">
-      Start
+    <button type="submit" class="btn">
+      PLAY BALL
     </button>
   </form>
   `;
@@ -21,7 +24,9 @@ function generateStartPage() {
 function generateQuestion() {
   return `
     <form class="question-quiz question-container">
-      <div class="question-count"> <h2>Question ${currentQuestion + 1} of 15</h2></div>
+      <div class="question-count"> <h2>Question ${currentQuestion + 1} of 15</h2>
+      <p>Current Score: ${score}</p>
+      </div>
     
       <div class="question-header"><h3>${questions[currentQuestion].question}</h3></div>
 
@@ -45,13 +50,13 @@ function generateQuestion() {
 // generates the form for correct answers
 function generateCorrect() {
   return `
-    <form class="feedback">
+    <form class="feedback correct">
       <h2> CORRECT! </h2>
      <div class="correct-gif">
       <img src="./images/catch.gif" />
      </div>
-      <p> Current Score: ${score} / 15 </p>
-      <button type="submit">Next>></button>
+      <p> Current Score: <span class="correct">${score}</span> / 15 </p>
+      <button type="submit" class="btn">Next</button>
     </form>
   `;
 }
@@ -59,13 +64,13 @@ function generateCorrect() {
 // generates the form for wrong answers
 function generateIncorrect() {
   return `
-    <form class="feedback">
+    <form class="feedback wrong">
       <h2> WRONG! </h2>
       <div class="wrong-gif">
       <img src="./images/killing-me-smalls.gif" />
      </div>
-      <p> Correct answer is ${questions[currentQuestion].correct} </p>
-      <p> ${score} out of 15!!! </p>
+      <p> Correct answer is <span class="correct">${questions[currentQuestion].correct}<span></p>
+      <p> Score: ${score} out of 15! </p>
       <button type="submit">Next</button>
     </form>
   `;
@@ -74,10 +79,10 @@ function generateIncorrect() {
 // generates the final results page, final tally, and restart quiz button
 function generateResults() {
   return `
-    <form class="results">
+    <form class="results feedback">
       <img src="./images/legends-never-die.gif" />
       <h2>You scored ${score} out of 15 Correct!</h2>
-      <button type="submit">Restart Quiz</button>
+      <button type="submit" class="btn">Restart Quiz</button>
     </form>
   `;
 }
