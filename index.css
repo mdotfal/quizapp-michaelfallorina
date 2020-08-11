@@ -42,8 +42,9 @@ body {
 }
 
 .quiz-html input[type="radio"]:checked + label {
-  background-color:rgb(187, 241, 255);
+  background-color: rgb(0, 0, 158);
   border-color: rgb(68, 77, 204);
+  color: white;
 }
 
 .question-count {
